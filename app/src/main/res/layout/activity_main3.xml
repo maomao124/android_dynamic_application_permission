@@ -4,21 +4,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
+        tools:context=".MainActivity3"
         android:orientation="vertical"
         android:gravity="center">
 
-    <Button
-            android:id="@+id/Button1"
-            android:layout_width="match_parent"
+    <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="获取存储权限" />
-
-    <Button
-            android:id="@+id/Button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="获取相机权限" />
-
+            android:text="相机权限获取成功" />
 
 </LinearLayout>

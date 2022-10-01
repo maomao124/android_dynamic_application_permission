@@ -28,17 +28,26 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-               getPermission(R.id.Button1);
+                save(R.id.Button1);
+            }
+        });
+
+        findViewById(R.id.Button2).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                camera(R.id.Button2);
             }
         });
     }
 
     /**
-     * 获得许可
+     * 保存
      *
      * @param requestCode 请求代码 ,可以是组件的id
      */
-    public void getPermission(int requestCode)
+    public void save(int requestCode)
     {
         if (checkPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 requestCode % 65536))
@@ -47,6 +56,22 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, MainActivity2.class));
         }
     }
+
+    /**
+     * 相机
+     *
+     * @param requestCode 请求代码
+     */
+    public void camera(int requestCode)
+    {
+        if (checkPermission(MainActivity.this, Manifest.permission.CAMERA,
+                requestCode % 65536))
+        {
+            //成功获取到权限
+            startActivity(new Intent(MainActivity.this, MainActivity3.class));
+        }
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
@@ -57,8 +82,21 @@ public class MainActivity extends AppCompatActivity
         if (requestCode == R.id.Button1 % 65536)
         {
             if (checkGrant(grantResults))
-            {   //用户选择了同意授权
+            {
+                //用户选择了同意授权
                 startActivity(new Intent(this, MainActivity2.class));
+            }
+            else
+            {
+                toastShow("没有权限");
+            }
+        }
+        else if (requestCode == R.id.Button2 % 65536)
+        {
+            if (checkGrant(grantResults))
+            {
+                //用户选择了同意授权
+                startActivity(new Intent(this, MainActivity3.class));
             }
             else
             {

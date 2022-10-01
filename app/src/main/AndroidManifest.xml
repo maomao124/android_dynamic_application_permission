@@ -3,8 +3,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="mao.android_dynamic_application_permission">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAG" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
             android:allowBackup="true"
@@ -16,6 +17,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Android_dynamic_application_permission"
             tools:targetApi="31">
+        <activity
+                android:name=".MainActivity3"
+                android:exported="false" />
         <activity
                 android:name=".MainActivity2"
                 android:exported="false" />
